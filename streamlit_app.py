@@ -43,11 +43,8 @@ try:
 except URLError as e:
     streamlist.error()
 
-#streamlit.write('The user entered ', fruit_choice)
-#pandas.json_normalize(fruityvice_response.json())
-
-#streamlit.stop()
-
+    
+    
 streamlit.text("The fruit load list contains:")
 
 def get_fruit_load_list():
@@ -60,12 +57,12 @@ if streamlit.button('Get Fruit Load list'):
     my_data_rows = get_fruit_load_list()
     streamlit.dataframe(my_data_rows)
     
-#streamlit.stop()
+streamlit.stop()
 
 def insert_row_snowflake(new_fruit):
   with my_cnx.cursor() as my_cur:
-    my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-    return "Thanks for adding " + new_fruit
+       my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+       return "Thanks for adding " + new_fruit
   
   add_my_fruit = streamlit.text_input('What fruit would you like to add?')
   if streamlit.button('Add a Fruit to the List'):
